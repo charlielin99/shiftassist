@@ -1,0 +1,56 @@
+{"Pnum" : 1234567890,
+	"Patient Profile":
+	{
+		"Current Nurse": 2345678901,
+		"Age" : 22,
+		"Sex" : "M",
+		"Primary Care Physician": "Lee",
+		"Here for": ["Pain in right arm"],
+		"History": ["High Blood Pressure"],
+		"Equipment": [],
+		"Diagnosis": [],
+		"Medications": ["Lorazepam"],
+		"Allergies" : ["Peanuts"],
+		"Do Not Resuscitate"  : false,
+		"Fall Risk" : false,
+		"Suicide Risk" : false
+	},
+
+	"Vitals":
+	{
+		"Vitals Taken": "2019-02-16T22:50:50.885Z",
+		"Body Temp": 100.0,
+		"Blood Pressure": [140,68],
+		"Respiration Rate": 15,
+		"Pulse": 32,
+		"O2": 88
+	},
+
+	"Tests/Bloodwork":
+	{
+		"Bloodwork":["Low Neutrophil Activity"],
+		"Tests":[["X-Ray", "Fractured Right Arm"]]
+	},
+
+	"Pain/Comfort":
+	{
+		"Pain": "2019-02-16T22:50:50.885Z",
+		"Pain Location": "Right Arm",
+		"Level": 8,
+		"Drug": "Morphine 5mg IV Bolus",
+		"Position": "U"
+	},
+
+	"Drugs/Lines":
+	{
+		"Drug(s)": [["Morphine 5mg IV Bolus","2019-02-16T22:50:50.885Z",false]],
+		"Lines/Fluids": [["Saline 300mL/hr","R","2019-02-16T22:50:50.885Z",true],["Morphine 5mg IV Bolus","R","2019-02-16T22:50:50.885Z",false]]
+	},
+
+	"Actions":
+	{
+		"Events": [["Morphine was Administered","2019-02-16T22:50:50.885Z"]],
+		"Referrals": [],
+		"Recommendations": [["Fracture Clinic","false"]]
+	}
+}

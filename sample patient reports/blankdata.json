@@ -1,0 +1,56 @@
+{"Pnum" : 0,
+	"Patient Profile":
+	{
+		"Current Nurse": 0,
+		"Age" : 0,
+		"Sex" : " ",
+		"Primary Care Physician": " ",
+		"Here for": [" "],
+		"History": [" "],
+		"Equipment": [" "],
+		"Diagnosis": [" "],
+		"Medications": [" "],
+		"Allergies" : [" "],
+		"Do Not Resuscitate"  : false,
+		"Fall Risk" : false,
+		"Suicide Risk" : false
+	},
+
+	"Vitals":
+	{
+		"Vitals Taken": " DATE ",
+		"Body Temp": 0.00,
+		"Blood Pressure": [0,0],
+		"Respiration Rate": 0,
+		"Pulse": 0,
+		"O2": 0
+	},
+
+	"Tests/Bloodwork":
+	{
+		"Bloodwork":[" ABNORMAL RESULTS "],
+		"Tests":[ [" TEST NAME ", " RESULTS "] ]
+	},
+
+	"Pain/Comfort":
+	{
+		"Pain": " DATE ",
+		"Pain Location": " ",
+		"Level": 0,
+		"Drug": " ",
+		"Position": " R/L/U "
+	},
+
+	"Drugs/Lines":
+	{
+		"Drug(s)": [ [" DRUG "," DATE ", false] ],
+		"Lines/Fluids": [ [" DRUG "," R/L "," DATE ", false] ]
+	},
+
+	"Actions":
+	{
+		"Events": [ [" EVENT "," DATE "] ],
+		"Referrals": [ [" DEPARTMENT ", " SPECIALIST "] ],
+		"Recommendations": [ ["RECOMMENDATION ", false] ]
+	}
+}
