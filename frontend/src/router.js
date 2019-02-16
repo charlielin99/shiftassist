@@ -1,9 +1,14 @@
+import {
+  ChatPage,
+  LoginPage,
+  PatientPage,
+  PatientsPage,
+  SettingsPage,
+  ShiftsPage
+} from "./pages/Pages";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-import ChatPage from "./pages/chat/ChatPage";
 import NotFoundPage from "./pages/404/404";
-import Patient from "./pages/patient/Patient";
-import Patients from "./pages/patients/Patients";
 import React from "react";
 import SplashPage from "./pages/splash/Splash";
 
@@ -18,14 +23,19 @@ export const routes = [
   {
     name: "Patients",
     url: "/patients",
-    component: Patients,
+    component: PatientsPage,
     exact: true,
     visible: true
   },
   {
-    name: "Schedule",
-    url: "/schedule",
-    component: Patients,
+    name: "Patient",
+    url: "/patients/:patientId",
+    component: PatientPage
+  },
+  {
+    name: "Shifts",
+    url: "/shifts",
+    component: ShiftsPage,
     exact: true,
     visible: true
   },
@@ -37,15 +47,16 @@ export const routes = [
     visible: true
   },
   {
-    name: "Patient",
-    url: "/patients/:patientId",
-    component: Patient
-  },
-  {
     name: "Settings",
     url: "/settings",
-    // component: () => null,
-    component: undefined,
+    component: SettingsPage,
+    visible: true,
+    props: { style: { float: "right" } }
+  },
+  {
+    name: "Login",
+    url: "/login",
+    component: LoginPage,
     visible: true,
     props: { style: { float: "right" } }
   }

@@ -17,3 +17,8 @@ a {
   align-items: center;
   justify-content: center;
 }
+
+.full {
+  width: 100%;
+  height: 100%;
+}

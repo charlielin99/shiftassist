@@ -1,4 +1,4 @@
-.patients {
+.smallcard {
   max-height: calc(100%-1.5rem);
   overflow-y: scroll;
 }

@@ -7,7 +7,7 @@ import React from "react";
 
 export default function Patients({ users, loading }) {
   return (
-    <Card className="patients">
+    <Card className="smallcard">
       <List
         itemLayout="horizontal"
         dataSource={users}
