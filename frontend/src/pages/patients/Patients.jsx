@@ -1,7 +1,9 @@
 import PageNavWrapper from "../PageNavWrapper/PageNavWrapper";
-import PatientsContainer from "../../containers/PatientContainer/PatientContainer";
+import PatientsContainer from "../../areas/patients/PatientsContainer";
 import React from "react";
-export default function Patients() {
+export default function Patients(props) {
+  console.log(props);
+
   return (
     <PageNavWrapper>
       <PatientsContainer />

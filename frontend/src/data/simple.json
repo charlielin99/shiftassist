@@ -1,0 +1,60 @@
+{
+  "change-reports": [
+    {
+      "id": "30a16e11-1376-4207-aa48-4af0a547a88d",
+      "outgoingNurse": "38e06bc7-54c7-4575-8579-e947a1e45036",
+      "incomingNurse": "222b2cee-5947-4339-9129-ede66563005b",
+      "date": "2/7/2019",
+      "time": "3:12 PM",
+      "patientData": {
+        "id": "b5fc78bc-f86e-4db9-bb22-e0ad97a12f04",
+        "doctorId": "d0946f0c-b87e-483b-a859-fb4e435f6fb8",
+        "symptoms": "cuts",
+        "lastSurgeryDate": "7/6/2018",
+        "status": "fair",
+        "details": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+        "vitals": { "state": 6, "lastTime": "2:29 AM" },
+        "pain": { "location": "arm", "medication": "Percocet" }
+      }
+    }
+  ],
+  "nurses": [
+    {
+      "id": "222b2cee-5947-4339-9129-ede66563005b",
+      "first_name": "Julietta",
+      "last_name": "Casarini",
+      "email": "jcasarini0@scientificamerican.com",
+      "shifts": [{ "startTime": "9:41 PM", "endTime": "10:36 AM" }],
+      "patients": [
+        "30a16e11-1376-4207-aa48-4af0a547a88d",
+        "3645246c-ff77-4b2e-8890-2c6377eea337",
+        "d74ce813-42c7-4701-b9bc-3beffb7dc49f",
+        "a3d9519d-a180-40bc-9bbf-d7a85048f052",
+        "c25e83e6-3fae-4efa-9d61-1e204455b416",
+        "581613f7-5415-461a-90a2-4c00be8b16ca",
+        "ef3e2a28-3b59-4a9b-a102-6055c3a2be00",
+        "b31edfc2-4984-470b-8b86-35110a42d5f5",
+        "91475ac2-616c-47ee-9a2f-d58a283bd776",
+        "be31abbf-d3a9-404d-98b9-6ddd7d3849f2"
+      ]
+    }
+  ],
+  "patients": [
+    {
+      "id": 1,
+      "first_name": "Rebecca",
+      "last_name": "Angove",
+      "email": "rangove0@fc2.com",
+      "phone": "260-663-5553",
+      "address": "1481 Schurz Pass",
+      "gender": "Female",
+      "history": [
+        "30a16e11-1376-4207-aa48-4af0a547a88d",
+        "30a16e11-1376-4207-aa48-4af0a547a88d",
+        "30a16e11-1376-4207-aa48-4af0a547a88d",
+        "30a16e11-1376-4207-aa48-4af0a547a88d"
+      ],
+      "avatar": "https://robohash.org/corruptivelitquia.png?size=50x50&set=set1"
+    }
+  ]
+}

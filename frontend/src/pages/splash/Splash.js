@@ -18,7 +18,7 @@ class SplashPage extends Component {
           </p>
           <Link to="/about">Background</Link>
           <br />
-          <ButtonLink url="/dashboard" size="large">
+          <ButtonLink url="/patients" size="large">
             Go
           </ButtonLink>
         </div>

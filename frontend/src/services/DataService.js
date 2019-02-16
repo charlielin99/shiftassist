@@ -17,7 +17,7 @@ export const getPatients = id => {
   return getUrl("/patients/", id);
 };
 
-export const getChangeReport = id => {
+export const getChangeReports = id => {
   return getUrl("/change-reports/", id);
 };
 

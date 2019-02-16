@@ -11,7 +11,7 @@ module.exports = override(
     modifyVars: {
       "@primary-color": "#429bd7",
       "@link-color": "#429bd7",
-      "@heading-color": "#fff",
+    //   "@heading-color": "#fff",
       "@font-family": "'Montserrat', sans-serif"
     }
   })

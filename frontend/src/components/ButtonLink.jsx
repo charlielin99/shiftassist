@@ -4,13 +4,13 @@ import { withRouter } from "react-router-dom";
 
 // this also works with react-router-native
 
-const ButtonLink = withRouter(props => (
+const ButtonLink = withRouter(({ staticContext, url, history, ...props }) => (
   <Button
     type="button"
+    // null={props.staticContext}
     {...props}
-    null={props.staticContext}
     onClick={() => {
-      props.history.push(props.url);
+      history.push(url);
     }}
   >
     {props.children}

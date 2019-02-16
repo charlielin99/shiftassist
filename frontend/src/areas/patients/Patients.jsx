@@ -17,7 +17,7 @@ export default function Patients({ users, loading }) {
             <List.Item>
               <List.Item.Meta
                 avatar={<Avatar icon="user" />}
-                title={<a>{user.first_name + " " + user.last_name}</a>}
+                title={user.first_name + " " + user.last_name}
                 description={user.email}
               />
             </List.Item>
