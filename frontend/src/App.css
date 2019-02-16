@@ -11,3 +11,9 @@ a {
   /* color: #fff; */
   /* font-family: "Montserrat", sans-serif; */
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

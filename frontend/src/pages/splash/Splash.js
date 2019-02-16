@@ -1,4 +1,4 @@
-import "./Splash.css";
+import "./Splash.scss";
 
 import React, { Component } from "react";
 

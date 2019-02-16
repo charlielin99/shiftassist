@@ -8,6 +8,7 @@ const ButtonLink = withRouter(props => (
   <Button
     type="button"
     {...props}
+    null={props.staticContext}
     onClick={() => {
       props.history.push(props.url);
     }}
