@@ -1,5 +1,6 @@
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
+import ChatPage from "./pages/chat/ChatPage";
 import NotFoundPage from "./pages/404/404";
 import Patient from "./pages/patient/Patient";
 import Patients from "./pages/patients/Patients";
@@ -18,6 +19,20 @@ export const routes = [
     name: "Patients",
     url: "/patients",
     component: Patients,
+    exact: true,
+    visible: true
+  },
+  {
+    name: "Schedule",
+    url: "/schedule",
+    component: Patients,
+    exact: true,
+    visible: true
+  },
+  {
+    name: "Chat",
+    url: "/chat",
+    component: ChatPage,
     exact: true,
     visible: true
   },

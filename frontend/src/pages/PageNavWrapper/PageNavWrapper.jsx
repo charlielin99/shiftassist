@@ -10,8 +10,8 @@ export default withRouter(({ match, ...props }) => {
   return (
     <Layout className="layout page">
       <Heading {...props} />
-      <Content style={{ padding: "0 50px", overflowY: "scroll" }}>
-        <Breadcrumb style={{ margin: "16px 0" }}>
+      <Content style={{ padding: "2rem 3rem", overflowY: "scroll" }}>
+        {/* <Breadcrumb style={{ margin: "16px 0" }}>
           <Breadcrumb.Item>
             <Link to="/">Home</Link>
           </Breadcrumb.Item>
@@ -25,7 +25,7 @@ export default withRouter(({ match, ...props }) => {
           ) : (
             <Breadcrumb.Item>Patients</Breadcrumb.Item>
           )}
-        </Breadcrumb>
+        </Breadcrumb> */}
         {props.children}
       </Content>
       <Footer style={{ textAlign: "center", zIndex: 99 }}>
