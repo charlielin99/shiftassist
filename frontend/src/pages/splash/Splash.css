@@ -1,0 +1,28 @@
+.splash {
+  background-color: #429bd7;
+  flex: 1 0 auto;
+  height: 100vh;
+  /* z-index: -99; */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered {
+  padding: 5rem;
+  background-color: #ffffff2c;
+  border-radius: 10px;
+  max-width: 20rem;
+  text-align: center;
+}
+
+.particles {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  /* z-index: -9; */
+  pointer-events: none;
+}
