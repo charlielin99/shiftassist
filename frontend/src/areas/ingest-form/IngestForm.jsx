@@ -325,13 +325,14 @@ class RegistrationForm extends React.Component {
             valuePropName: "checked"
           })(
             <Checkbox>
-              I have read the <a href="">agreement</a>
+              All patient data is verified to be accurate to the{" "}
+              <a href="">best of my ability</a>
             </Checkbox>
           )}
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">
-            Register
+            Submit
           </Button>
         </Form.Item>
       </Form>

@@ -20,7 +20,7 @@ class SplashPage extends Component {
             healthcare industry issues.
           </p>
           <br />
-          <ButtonLink url="/patients" size="large">
+          <ButtonLink url="/login" size="large">
             Go
           </ButtonLink>
         </div>

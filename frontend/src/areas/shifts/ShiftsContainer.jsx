@@ -1,19 +1,40 @@
 import React, { Component } from "react";
+import { getShifts, query } from "../../services/GQLDataService";
 
 import Shifts from "./Shifts";
-import { getNurses } from "../../services/DataService";
 
 export default class ShiftsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = { users: [], loading: true };
-    getNurses().then(data => {
+    query(
+      `
+    query nurse($id: String! = "5c69784c0b3e17bb8a8f3273") {
+        nurse(id: $id) {
+            firstName
+            lastName
+            shifts {
+                startTime
+                endTime
+            }
+        }
+    }`,
+      { $id: "5c69784c0b3e17bb8a8f3273" }
+    ).then(data => {
       console.log(data);
 
-      this.setState({ nurse: data[0], loading: false });
+      this.setState({
+        shifts: data && data.data.nurse && data.data.nurse.shifts,
+        loading: false
+      });
     });
   }
   render() {
-    return <Shifts nurse={this.state.nurse} loading={this.state.loading} />;
+    return (
+      <Shifts
+        shifts={this.state && this.state.shifts}
+        loading={this.state.loading}
+      />
+    );
   }
 }

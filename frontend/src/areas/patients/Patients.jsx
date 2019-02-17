@@ -5,20 +5,20 @@ import { Avatar, Card, List } from "antd";
 import { Link } from "react-router-dom";
 import React from "react";
 
-export default function Patients({ users, loading }) {
+export default function Patients({ patients, loading }) {
   return (
     <Card className="smallcard">
       <List
         itemLayout="horizontal"
-        dataSource={users}
+        dataSource={patients}
         loading={loading}
-        renderItem={user => (
-          <Link to={"/patients/" + user.id}>
+        renderItem={patient => (
+          <Link to={"/patients/" + patient._id}>
             <List.Item>
               <List.Item.Meta
                 avatar={<Avatar icon="user" />}
-                title={user.first_name + " " + user.last_name}
-                description={user.email}
+                title={patient.firstName + " " + patient.lastName}
+                description={patient.gender}
               />
             </List.Item>
           </Link>

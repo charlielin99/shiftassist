@@ -3,6 +3,7 @@ import "./Login.css";
 import { Button, Checkbox, Form, Icon, Input } from "antd";
 
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 class NormalLoginForm extends React.Component {
   handleSubmit = e => {
@@ -10,12 +11,17 @@ class NormalLoginForm extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
+        this.setState({ toDashboard: true });
       }
     });
   };
 
   render() {
     const { getFieldDecorator } = this.props.form;
+
+    if (this.state && this.state.toDashboard === true) {
+      return <Redirect to="/patients" />;
+    }
     return (
       <Form
         onSubmit={this.handleSubmit}

@@ -1,8 +1,10 @@
+import { Button, Col, Input, Row } from "antd";
 import React, { Component } from "react";
+
 import Message from "./Message";
-import { Input, Button, Row, Col } from "antd";
 import axios from "axios";
 
+const baseUrl = "https://ancient-coast-23455.herokuapp.com";
 class Messanger extends Component {
   constructor(props) {
     super(props);
@@ -18,26 +20,24 @@ class Messanger extends Component {
   }
 
   componentDidMount() {
-    axios
-      .get(`http://ancient-coast-23455.herokuapp.com/requestSession`)
-      .then(res => {
-        const sessId = res.data;
-        console.log(sessId);
-        this.setState({ sessId });
+    axios.get(`${baseUrl}/requestSession`).then(res => {
+      const sessId = res.data;
+      console.log(sessId);
+      this.setState({ sessId });
 
-        axios
-          .post("http://ancient-coast-23455.herokuapp.com/ask", {
-            sessionId: this.state.sessId,
-            data: "John"
-          })
-          .then(function(response) {
-            // console.log(response.data);
-            this.addTodo("watson", response.data);
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
-      });
+      axios
+        .post(`${baseUrl}/ask`, {
+          sessionId: this.state.sessId,
+          data: "John"
+        })
+        .then(function(response) {
+          // console.log(response.data);
+          this.addTodo("watson", response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    });
   }
 
   convertToObject = () => {
@@ -127,7 +127,7 @@ class Messanger extends Component {
   handleMessageSubmit = e => {
     var self = this;
     axios
-      .post("http://ancient-coast-23455.herokuapp.com/ask", {
+      .post(`${baseUrl}/ask`, {
         sessionId: this.state.sessId,
         data: this.state.currentMessage
       })
