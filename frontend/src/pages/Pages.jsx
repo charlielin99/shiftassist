@@ -1,3 +1,4 @@
+import Qr from "../areas/qr/Qr";
 import Chat from "../areas/chat/Chat";
 import IngestForm from "../areas/ingest-form/IngestForm";
 import LoginContainer from "../areas/login/LoginContainer";
@@ -27,3 +28,4 @@ export const ChatPage = pagify(Chat);
 export const SettingsPage = pagify(SettingsContainer);
 export const LoginPage = pagify(LoginContainer);
 export const FormPage = pagify(IngestForm);
+export const QrPage = pagify(Qr);

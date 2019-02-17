@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Message from "./Message";
-import { Input, Button } from "antd";
+import { Input, Button, Row, Col } from "antd";
 import axios from "axios";
 
 class Messanger extends Component {
@@ -10,6 +10,8 @@ class Messanger extends Component {
       messages: [
         { id: 1, author: "watson", content: "What was the patients name?" }
       ],
+      responses: [],
+      texts: [],
       currentMessage: "",
       sessId: ""
     };
@@ -36,6 +38,76 @@ class Messanger extends Component {
     });
   }
 
+  convertToObject = () => {
+    if (this.state.messages.length > 24) {
+      var finalObject = {};
+      var summary = "";
+      //patient name
+      finalObject["id"] = this.state.responses[0];
+
+      //doctor name
+      finalObject["doctorId"] = this.state.responses[1];
+
+      // surgery date
+      finalObject["lastSurgeryDate"] = this.state.responses[4];
+
+      finalObject["vitalState"] = this.state.responses[8];
+
+      finalObject["lastTime"] = this.state.responses[9];
+
+      finalObject["status"] = this.state.responses[6];
+
+      finalObject["statusDetails"] = this.state.messages[15].content;
+
+      var count = 0;
+      var flag = 0;
+      for (var i = 0; i < this.state.messages.length; ++i) {
+        console.log(
+          "What medication are they taking for this?" ===
+            this.state.messages[i].content
+        );
+        if (
+          "What medication are they taking for this?" ===
+          this.state.messages[i].content
+        ) {
+          if (flag == 0) {
+            flag = i;
+          }
+          count++;
+        }
+      }
+
+      console.log(flag);
+      console.log(count);
+      console.log(flag + 6 * count);
+      if (flag != 0 && this.state.messages.length > flag + 6 * count) {
+        var painLocs = [];
+        var painMed = [];
+        for (var i = 0; i < count; i++) {
+          console.log(this.state.messages[flag + 6 * i].content);
+          painLocs.push(this.state.messages[flag + -1 + 6 * i].content);
+          painMed.push(this.state.messages[flag + 1 + 6 * i].content);
+        }
+
+        finalObject["painLocation"] = painLocs;
+        finalObject["painMedication"] = painMed;
+      }
+      console.log("Final object params: ");
+      console.log(finalObject);
+    } else {
+      console.log("Yes");
+    }
+  };
+
+  addValue = response => {
+    // message.id =
+    console.log("Responses: ");
+    console.log(this.state.responses);
+    this.setState({
+      responses: [...this.state.responses, response]
+    });
+  };
+
   addTodo = (author, content) => {
     // message.id =
     const message = {
@@ -59,7 +131,8 @@ class Messanger extends Component {
       })
       .then(function(response) {
         // console.log(response.data);
-        self.addTodo("watson", response.data);
+        self.addTodo("watson", response.data[0]);
+        self.addValue(response.data[1]);
       })
       .catch(function(error) {
         console.log(error);
@@ -68,7 +141,12 @@ class Messanger extends Component {
     // console.log(this.state.watson);
     this.addTodo("user", this.state.currentMessage);
     // console.log(this.state.messages);
+    if (this.state.messages.length > 13) {
+      console.log("Starts Here: ______________");
+      this.convertToObject();
+    }
     this.setState({ currentMessage: "" });
+    console.log(this.state.messages);
   };
   handleMessageChange = e => {
     this.setState({ currentMessage: e.target.value });
@@ -81,27 +159,43 @@ class Messanger extends Component {
   render() {
     return (
       <div className="Messanger">
-        <ul>
-          {this.state.messages.map((item, idx) => (
-            <Message
-              key={idx}
-              messageContent={item.content}
-              messageAuthor={item.author}
-            />
-          ))}
-        </ul>
-        <div className="white">
-          <Input
-            placeholder="Basic usage"
-            value={this.state.currentMessage}
-            onChange={this.handleMessageChange}
-            onKeyPress={this.handleKeyPress}
-          />
-          <p> </p>
-          <Button type="primary" onClick={this.handleMessageSubmit}>
-            Submit
-          </Button>
-        </div>
+        <Row>
+          <Col span={1} />
+          <Col span={22}>
+            <ul>
+              {this.state.messages.map((item, idx) => (
+                <Message
+                  key={idx}
+                  messageContent={item.content}
+                  messageAuthor={item.author}
+                />
+              ))}
+            </ul>
+            <div className="white">
+              <Row>
+                <Col span={1} />
+                <Col span={22} align="center">
+                  <Input
+                    placeholder="Start Conversing with Watson"
+                    value={this.state.currentMessage}
+                    onChange={this.handleMessageChange}
+                    onKeyPress={this.handleKeyPress}
+                  />
+                </Col>
+                <Col span={1} />
+              </Row>
+              <p> </p>
+              <Row>
+                <Col align="center">
+                  <Button type="primary" onClick={this.handleMessageSubmit}>
+                    Submit
+                  </Button>
+                </Col>
+              </Row>
+            </div>
+          </Col>
+          <Col span={1} />
+        </Row>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import {
   LoginPage,
   PatientPage,
   PatientsPage,
+  QrPage,
   SettingsPage,
   ShiftsPage
 } from "./pages/Pages";
@@ -44,6 +45,13 @@ export const routes = [
     name: "Chat",
     url: "/chat",
     component: ChatPage,
+    exact: true,
+    visible: true
+  },
+  {
+    name: "Qr",
+    url: "/qr",
+    component: QrPage,
     exact: true,
     visible: true
   },
