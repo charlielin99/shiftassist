@@ -21,6 +21,7 @@ import CurrentTime from "../../components/CurrentTime";
 import RadioGroup from "antd/lib/radio/group";
 import React from "react";
 import TextArea from "antd/lib/input/TextArea";
+import { send } from "../../services/IngestService";
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -95,6 +96,9 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
+        send(values)
+          .then(res => {})
+          .catch(err => {});
       }
     });
   };

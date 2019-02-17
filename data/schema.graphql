@@ -1,0 +1,87 @@
+type Query {
+  #   hero(episode: Episode): Character
+  #   human(id: String!): Human
+  #   droid(id: String!): Droid
+
+  nurses(id: String): Nurse
+  patients(id: String): Patient
+  changeReports(id: String): ChangeReport
+}
+
+interface User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String
+  phone: String
+  address: String
+}
+
+type Patient implements User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String
+  phone: String
+  address: String
+  gender: String
+  history: String
+  avatar: String
+}
+
+type ChangeReport {
+  id: ID
+  outgoingNurse: Nurse
+  incomingNurse: Nurse
+  date: String
+  time: DateTime
+  patientData: PatientData
+}
+
+type PatientData {
+  id: ID
+  doctorId: String
+  symptoms: [String]
+  lastSurgeryDate: Date
+  status: PatientStatus
+  statusDetails: String
+  vitals: PatientVitals
+  pain: PatientPain
+}
+
+type PatientVitals {
+  vitalState: VitalState
+  lastTime: DateTime
+}
+
+type PatientPain {
+  painLocation: [String]
+  painMedication: [String]
+}
+
+enum VitalState {
+  Q4
+  Q15
+  Q30
+}
+
+enum PatientStatus {
+  GOOD
+  FAIR
+  BAD
+}
+
+type Nurse implements User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String
+  phone: String
+  shifts: [Shift]
+  patients: [Patient]
+}
+
+type Shift {
+  startTime: Time
+  endTime: Time
+}
