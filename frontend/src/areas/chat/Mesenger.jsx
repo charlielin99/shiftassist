@@ -18,24 +18,26 @@ class Messanger extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:8080/requestSession`).then(res => {
-      const sessId = res.data;
-      console.log(sessId);
-      this.setState({ sessId });
+    axios
+      .get(`http://ancient-coast-23455.herokuapp.com/requestSession`)
+      .then(res => {
+        const sessId = res.data;
+        console.log(sessId);
+        this.setState({ sessId });
 
-      axios
-        .post("http://localhost:8080/ask", {
-          sessionId: this.state.sessId,
-          data: "John"
-        })
-        .then(function(response) {
-          // console.log(response.data);
-          this.addTodo("watson", response.data);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    });
+        axios
+          .post("http://ancient-coast-23455.herokuapp.com/ask", {
+            sessionId: this.state.sessId,
+            data: "John"
+          })
+          .then(function(response) {
+            // console.log(response.data);
+            this.addTodo("watson", response.data);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      });
   }
 
   convertToObject = () => {
@@ -125,7 +127,7 @@ class Messanger extends Component {
   handleMessageSubmit = e => {
     var self = this;
     axios
-      .post("http://localhost:8080/ask", {
+      .post("http://ancient-coast-23455.herokuapp.com/ask", {
         sessionId: this.state.sessId,
         data: this.state.currentMessage
       })

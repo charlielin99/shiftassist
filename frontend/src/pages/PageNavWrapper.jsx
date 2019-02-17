@@ -29,7 +29,7 @@ export default withRouter(({ match, ...props }) => {
         {props.children}
       </Content>
       <Footer style={{ textAlign: "center", zIndex: 99 }}>
-        &copy; 2018 ShiftChange
+        &copy; 2018 ShiftAssist
       </Footer>
     </Layout>
   );
