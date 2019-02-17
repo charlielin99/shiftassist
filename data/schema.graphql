@@ -8,16 +8,16 @@ type Query {
   changeReports(id: String): ChangeReport
 }
 
-interface User {
-  id: ID!
-  firstName: String!
-  lastName: String!
-  email: String
-  phone: String
-  address: String
-}
+# interface User {
+#   id: ID!
+#   firstName: String!
+#   lastName: String!
+#   email: String
+#   phone: String
+#   address: String
+# }
 
-type Patient implements User {
+type Patient {
   id: ID!
   firstName: String!
   lastName: String!
@@ -71,7 +71,7 @@ enum PatientStatus {
   BAD
 }
 
-type Nurse implements User {
+type Nurse {
   id: ID!
   firstName: String!
   lastName: String!
@@ -84,4 +84,16 @@ type Nurse implements User {
 type Shift {
   startTime: Time
   endTime: Time
+}
+
+type DateTime {
+  dt: Int!
+}
+
+type Date {
+  date: String!
+}
+
+type Time {
+  t: Int!
 }
