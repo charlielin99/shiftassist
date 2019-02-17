@@ -1,20 +1,41 @@
 import React, { Component } from "react";
 import Message from "./Message";
 import { Input, Button } from "antd";
+import axios from "axios";
 
 class Messanger extends Component {
   constructor(props) {
     super(props);
     this.state = {
       messages: [
-        { id: "1", author: "user", content: "what do dogs look like" },
-        { id: "2", author: "watson", content: "shut up fool" },
-        { id: "3", author: "user", content: "that's mean" },
-        { id: "4", author: "watson", content: "didn't i say to shut up" }
+        { id: 1, author: "watson", content: "What was the patients name?" }
       ],
-      currentMessage: ""
+      currentMessage: "",
+      sessId: ""
     };
   }
+
+  componentDidMount() {
+    axios.get(`http://localhost:8080/requestSession`).then(res => {
+      const sessId = res.data;
+      console.log(sessId);
+      this.setState({ sessId });
+
+      axios
+        .post("http://localhost:8080/ask", {
+          sessionId: this.state.sessId,
+          data: "John"
+        })
+        .then(function(response) {
+          // console.log(response.data);
+          this.addTodo("watson", response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    });
+  }
+
   addTodo = (author, content) => {
     // message.id =
     const message = {
@@ -28,27 +49,32 @@ class Messanger extends Component {
       messages: [...this.state.messages, message]
     });
   };
-  setMessage = currentMessage => {
-    this.setState({
-      currentMessage: this.currentMessage,
-      message: currentMessage
-    });
-  };
-  handleMessageSubmit = e => {
-    console.log("handling message even:", e);
 
+  handleMessageSubmit = e => {
+    var self = this;
+    axios
+      .post("http://localhost:8080/ask", {
+        sessionId: this.state.sessId,
+        data: this.state.currentMessage
+      })
+      .then(function(response) {
+        // console.log(response.data);
+        self.addTodo("watson", response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+    // console.log(this.state.watson);
     this.addTodo("user", this.state.currentMessage);
+    // console.log(this.state.messages);
     this.setState({ currentMessage: "" });
   };
   handleMessageChange = e => {
-    console.log(e);
-
     this.setState({ currentMessage: e.target.value });
   };
   handleKeyPress = e => {
     if (e.charCode == 13) {
-      console.log("entered");
-
       this.handleMessageSubmit();
     }
   };

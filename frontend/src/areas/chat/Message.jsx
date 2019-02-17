@@ -1,6 +1,7 @@
 import React from "react";
 import { Comment, Icon, Tooltip, Avatar } from "antd";
 import moment from "moment";
+const axios = require("axios");
 
 const Message = props => {
   const isWatson = props.messageAuthor == "watson";
