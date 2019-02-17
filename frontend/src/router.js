@@ -65,9 +65,9 @@ export const routes = [
   {
     name: "Login",
     url: "/login",
-    component: LoginPage,
-    visible: true,
-    props: { style: { float: "right" } }
+    component: LoginPage
+    // visible: true,
+    // props: { style: { float: "right" } }
   },
   {
     name: "Form",

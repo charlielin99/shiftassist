@@ -12,17 +12,6 @@ export default class PatientContainer extends Component {
     this.state = { user: {}, loading: true };
     if (props.match) {
       const pID = props.match.params.patientId;
-      //   getPatients().then(data => {
-      //     this.setState({ user: data, loading: false });
-
-      //     let p = [];
-      //     for (const event of data.history) {
-      //       p.push(getChangeReports(event));
-      //     }
-      //     Promise.all(p).then(data => {
-      //       this.setState({ shiftChanges: data });
-      //     });
-      //   });
     }
   }
   render() {

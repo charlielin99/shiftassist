@@ -1,8 +1,10 @@
+import { Button, Col, Input, Row } from "antd";
 import React, { Component } from "react";
+
 import Message from "./Message";
-import { Input, Button, Row, Col } from "antd";
 import axios from "axios";
 
+const baseUrl = "https://ancient-coast-23455.herokuapp.com";
 class Messanger extends Component {
   constructor(props) {
     super(props);
@@ -18,13 +20,13 @@ class Messanger extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:8080/requestSession`).then(res => {
+    axios.get(`${baseUrl}/requestSession`).then(res => {
       const sessId = res.data;
       console.log(sessId);
       this.setState({ sessId });
 
       axios
-        .post("http://localhost:8080/ask", {
+        .post(`${baseUrl}/ask`, {
           sessionId: this.state.sessId,
           data: "John"
         })
@@ -125,7 +127,7 @@ class Messanger extends Component {
   handleMessageSubmit = e => {
     var self = this;
     axios
-      .post("http://localhost:8080/ask", {
+      .post(`${baseUrl}/ask`, {
         sessionId: this.state.sessId,
         data: this.state.currentMessage
       })
