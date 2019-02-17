@@ -1,5 +1,6 @@
 import {
   ChatPage,
+  FormPage,
   LoginPage,
   PatientPage,
   PatientsPage,
@@ -59,6 +60,12 @@ export const routes = [
     component: LoginPage,
     visible: true,
     props: { style: { float: "right" } }
+  },
+  {
+    name: "Form",
+    url: "/form",
+    component: FormPage,
+    visible: true
   }
   //   {
   //     name: "404",
