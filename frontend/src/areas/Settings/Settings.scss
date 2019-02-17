@@ -1,0 +1,15 @@
+.settings {
+  h1 {
+    font-weight: bold;
+    display: inline-block;
+  }
+  .row {
+    .left {
+      display: inline-block;
+    }
+    .right {
+      display: inline-block;
+      float: right;
+    }
+  }
+}
