@@ -64,10 +64,24 @@ app.post("/ask", (req, res) => {
         let r = "error";
         switch (response.output.generic[0].response_type) {
           case "option":
-            r = response.output.generic[0].description;
+            if (response.output.entities.length > 0) {
+              r = [
+                response.output.generic[0].description,
+                response.output.entities[0].value
+              ];
+            } else {
+              r = [response.output.generic[0].description, ""];
+            }
             break;
           case "text":
-            r = response.output.generic[0].text;
+            if (response.output.entities.length > 0) {
+              r = [
+                response.output.generic[0].text,
+                response.output.entities[0].value
+              ];
+            } else {
+              r = [response.output.generic[0].text, ""];
+            }
             break;
           default:
             break;
